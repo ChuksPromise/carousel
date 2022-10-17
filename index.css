@@ -1,3 +1,33 @@
+    nav p{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 100px;
+        text-shadow: 0px 0px 3px green;
+        font-weight: bold;
+        font-family: 'algerian', serif;
+        animation: textAnime 0.7s ease-in-out 0s infinite linear;
+    }
+    @keyframes textAnime{
+        0%{
+            background: red;
+            text-shadow: 0px 0px 3px green;
+        }
+        20%{
+            text-shadow: 0px 0px 3px green;
+        }
+        40%{
+            text-shadow: 0px 0px 3px orange
+        }
+        60%{
+            text-shadow: 0px 0px 3px yellow;
+        }
+        80%{
+            text-shadow: 0px 0px 3px red;
+        }
+        100%{
+            text-shadow: 0px 0px 3px red;
+        }
+    }
     section{
     margin: 0px auto;
     text-align: center;
@@ -5,16 +35,32 @@
     justify-content: center;
     align-items: center;
     padding: 5px;
+    overflow: hidden;
 }
 section div.imagescont{
     margin: 0px 10px;
     display: flex;
     flex-direction: row;
     width: 500px;
-    overflow-x: scroll;
 }
+
+/* this is done for the button click in javascript,
+ so therefore make it hidden */
+
+.imagescont .carouselItem, 
+.imagescont .carouselItem--hidden{
+    display: none;
+}
+
+
+/* to call back the first item only to be displayed on the screen at default */
+.imagescont .carouselItem--visible{
+    display: block ;
+    animation: caroAnime 1.3s ease-in-out;
+}
+
+
 div img{
-    margin: 0px 10px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -30,4 +76,13 @@ button:hover{
     background-color: rgb(3, 247, 64);;
     border: 2px solid white;
 }
- 
+ @keyframes caroAnime {
+    0%{
+        opacity: 0.5;
+        transform: rotateY(180deg);
+    }
+    100%{
+        opacity: 0.9;
+        transform: rotateY(-180deg);
+    }
+ }
